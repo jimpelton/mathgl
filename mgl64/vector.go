@@ -99,6 +99,21 @@ func (v1 Vec2) Mul(c float64) Vec2 {
 	return Vec2{v1[0] * c, v1[1] * c}
 }
 
+// CompMul performs element-wise scalar multiplication between two vectors. It is equivalent to iterating
+// over every element of v1 and multiplying by the corresponding element of v2.
+func (v1 Vec2) CompMul(v2 Vec2) Vec2 {
+	return Vec2{v1[0] * v2[0], v1[1] * v2[1]}
+}
+
+// CompDiv performs element-wise scalar division between two vectors. It is equivalent to iterating
+// over every element of v1 and dividing by the corresponding element of v2.
+//
+// Note: It is the responsibility of the caller to check for 0's in the divisor.
+func (v1 Vec2) CompDiv(v2 Vec2) Vec2 {
+	return Vec2{v1[0] / v2[0], v1[1] / v2[1]}
+
+}
+
 // Dot returns the dot product of this vector with another. There are multiple ways
 // to describe this value. One is the multiplication of their lengths and cos(theta) where
 // theta is the angle between the vectors: v1.v2 = |v1||v2|cos(theta).
@@ -250,6 +265,21 @@ func (v1 Vec3) Sub(v2 Vec3) Vec3 {
 // c. This is equivalent to iterating over every vector element and multiplying by c.
 func (v1 Vec3) Mul(c float64) Vec3 {
 	return Vec3{v1[0] * c, v1[1] * c, v1[2] * c}
+}
+
+// CompMul performs element-wise scalar multiplication between two vectors. It is equivalent to iterating
+// over every element of v1 and multiplying by the corresponding element of v2.
+func (v1 Vec3) CompMul(v2 Vec3) Vec3 {
+	return Vec3{v1[0] * v2[0], v1[1] * v2[1], v1[2] * v2[2]}
+}
+
+// CompDiv performs element-wise scalar division between two vectors. It is equivalent to iterating
+// over every element of v1 and dividing by the corresponding element of v2.
+//
+// Note: It is the responsibility of the caller to check for 0's in the divisor.
+func (v1 Vec3) CompDiv(v2 Vec3) Vec3 {
+	return Vec3{v1[0] / v2[0], v1[1] / v2[1], v1[2] / v2[2]}
+
 }
 
 // Dot returns the dot product of this vector with another. There are multiple ways
@@ -411,6 +441,21 @@ func (v1 Vec4) Sub(v2 Vec4) Vec4 {
 // c. This is equivalent to iterating over every vector element and multiplying by c.
 func (v1 Vec4) Mul(c float64) Vec4 {
 	return Vec4{v1[0] * c, v1[1] * c, v1[2] * c, v1[3] * c}
+}
+
+// CompMul performs element-wise scalar multiplication between two vectors. It is equivalent to iterating
+// over every element of v1 and multiplying by the corresponding element of v2.
+func (v1 Vec4) CompMul(v2 Vec4) Vec4 {
+	return Vec4{v1[0] * v2[0], v1[1] * v2[1], v1[2] * v2[2], v1[3] * v2[3]}
+}
+
+// CompDiv performs element-wise scalar division between two vectors. It is equivalent to iterating
+// over every element of v1 and dividing by the corresponding element of v2.
+//
+// Note: It is the responsibility of the caller to check for 0's in the divisor.
+func (v1 Vec4) CompDiv(v2 Vec4) Vec4 {
+	return Vec4{v1[0] / v2[0], v1[1] / v2[1], v1[2] / v2[2], v1[3] / v2[3]}
+
 }
 
 // Dot returns the dot product of this vector with another. There are multiple ways

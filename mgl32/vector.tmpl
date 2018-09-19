@@ -101,6 +101,21 @@ func (v1 <<$type>>) Mul(c float32) <<$type>> {
 	return <<$type>>{<<range $i := iter 0 $m>> v1[<<$i>>] * c, <<end>>}
 }
 
+// CompMul performs element-wise scalar multiplication between two vectors. It is equivalent to iterating
+// over every element of v1 and multiplying by the corresponding element of v2.
+func (v1 <<$type>>) CompMul(v2 <<$type>>) <<$type>> {
+    return <<$type>>{<<range $i := iter 0 $m>> v1[<<$i>>] * v2[<<$i>>], <<end>>}
+}
+
+// CompDiv performs element-wise scalar division between two vectors. It is equivalent to iterating
+// over every element of v1 and dividing by the corresponding element of v2.
+//
+// Note: It is the responsibility of the caller to check for 0's in the divisor.
+func (v1 <<$type>>) CompDiv(v2 <<$type>>) <<$type>> {
+    return <<$type>>{<<range $i := iter 0 $m>> v1[<<$i>>] / v2[<<$i>>], <<end>>}
+
+}
+
 // Dot returns the dot product of this vector with another. There are multiple ways
 // to describe this value. One is the multiplication of their lengths and cos(theta) where
 // theta is the angle between the vectors: v1.v2 = |v1||v2|cos(theta).
